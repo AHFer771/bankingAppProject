@@ -78,7 +78,8 @@ public class infinityCapitalApp implements ActionListener{
 
 		if(Username.equals(createdUsername) && passWord1.equals(createdPassword)) {
 			JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
-		}
+		}else{
+			JOptionPane.showMessageDialog(null, "INCORRECT CREDENTIALS");
 	}
 
 }
