@@ -1,0 +1,77 @@
+package javaBankingApplication;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class infinityCapitalApp implements ActionListener{
+	private static String createdUsername;
+	private static String createdPassword;
+	private static JFrame createAccountFrame;
+	private static JTextField userName;
+	private static JPasswordField passWord;
+	private static JButton button;
+	private static JLabel passWord1, label;
+	 
+	public static void main(String[] args) {
+		createAccountFrame = new JFrame();
+		createAccountFrame.setTitle("INFINITY CAPITAL \u221E");
+		createAccountFrame.setLocation(new Point(500, 300));
+		createAccountFrame.setSize(new Dimension(400, 200));
+		createAccountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel createPanel = new JPanel();
+		createPanel.setLayout(null);
+		
+		JLabel createLabel = new JLabel("Create Username");
+		createLabel.setBounds(100, 8, 120, 20);
+		createPanel.add(createLabel);
+		
+		JTextField createUsername = new JTextField();
+		createUsername.setBounds(100, 27, 193, 28);
+		createPanel.add(createUsername);
+		
+		JLabel createPassword1 = new JLabel("Create Password");
+		createPassword1.setBounds(100, 55, 193, 28);
+		createPanel.add(createPassword1);
+		
+		JPasswordField createPassword = new JPasswordField();
+		createPassword.setBounds(100, 75, 193, 28);
+		createPanel.add(createPassword);
+		
+		JButton createButton = new JButton("Create Account");
+		createButton.setBounds(100, 110, 150, 25);
+		createButton.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+				createdUsername = createUsername.getText();
+				createdPassword = new String(createPassword.getPassword());
+				JOptionPane.showMessageDialog(null, "Account Created!");
+				createAccountFrame.dispose();
+				//showLoginScreen();
+			}
+			
+		});
+		createPanel.add(createButton);
+		
+		createAccountFrame.add(createPanel);
+		createAccountFrame.setVisible(true);
+		
+	}
+	
+	
+	//add login screen
+	
+	
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		String Username = userName.getText();
+		String passWord1 = new String(passWord.getPassword());
+		
+		if(Username.equals(createdUsername) && passWord1.equals(createdPassword)) {
+			JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
+		}
+	}
+
+}
