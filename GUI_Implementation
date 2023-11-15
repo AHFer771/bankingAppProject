@@ -58,7 +58,9 @@ public class infinityCapitalApp implements ActionListener{
 		createAccountFrame.setVisible(true);
 		
 	}
-	
+	/*once account is created user should be redirected to login page to input their 
+	credentials
+	*/
 	
 	//add login screen
 	
@@ -69,6 +71,11 @@ public class infinityCapitalApp implements ActionListener{
 		String Username = userName.getText();
 		String passWord1 = new String(passWord.getPassword());
 		
+
+		/*Once login screen is created, this should check if password and username are equal to what they first
+		created
+		*/
+
 		if(Username.equals(createdUsername) && passWord1.equals(createdPassword)) {
 			JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
 		}
