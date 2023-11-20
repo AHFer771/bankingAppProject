@@ -52,13 +52,13 @@ public static void main(String[] args) {
 					 	
 					 	switch(accountChoice) {
 					 		case 1:
-					 			accountMenu(userName, "Checking", checkingBalance, sc);
+					 			accountMenu(userName, "CHECKING", checkingBalance, sc);
 					 			break;
 					 		case 2:
-					 			accountMenu(userName, "Savings", savingsBalance, sc);
+					 			accountMenu(userName, "SAVINGS", savingsBalance, sc);
 					 			break;
 					 		case 3:
-					 			investmentChoice(userName, "Investments", sc);
+					 			investmentChoice(userName, "INVESTMENTS", sc);
 					 			break;
 					 		case 4:
 					 			System.out.println("LOGING OFF...");
@@ -74,7 +74,7 @@ public static void main(String[] args) {
 	 		public static void investmentChoice(String userName, String accountType, Scanner sc) {
 	 			int selection;
 	
-	 			System.out.println("-----------"+accountType+"-----------");
+	 			System.out.println("-------------"+accountType+"-------------");
 	 			System.out.println("$ICBNK   -(Infinte Capital)-   +5000%");
 	 			System.out.println("$MSFT      -(Microsoft)-       -1.68%");
 	 			System.out.println("$AAPL        -(Apple)-         -0.02%");
@@ -93,7 +93,7 @@ public static void main(String[] args) {
 	 		public static void accountMenu(String userName, String accountType, double balance, Scanner sc) {
 				int choice;
 				while(true){
-					System.out.println("----"+accountType+"----");
+					System.out.println("--------"+accountType+"--------");
 					System.out.println("Check balance  [1]");
 					System.out.println("Deposit funds  [2]");
 					System.out.println("Withdraw funds [3]");
@@ -113,11 +113,13 @@ public static void main(String[] args) {
 							break;
 						case(2):
 							System.out.println("Please enter the amount you would like to deposit: ");
+							System.out.print("$");
 							double depositAmount = sc.nextDouble();
 							balance = depositFunds(balance, depositAmount);
 							break;
 						case(3):
 							System.out.print("Please enter the amount you would like to withdraw: ");
+							System.out.print("$");
 							double withdrawAmount = sc.nextDouble();
 							balance = withdrawFunds(balance, withdrawAmount);
 							break;
@@ -140,7 +142,8 @@ public static void main(String[] args) {
 			}
 			public static double depositFunds(double balance, double amount) {
 				balance += amount;
-				System.out.println("Amount Deposited: "+amount);
+				System.out.println("Amount Deposited:$"+amount);
+				System.out.println("Current Balance:$"+balance); 
 				return balance;
 			}
 			public static double withdrawFunds(double balance, double amount) {
@@ -148,7 +151,8 @@ public static void main(String[] args) {
 					System.out.println("INSUFFICENT FUNDS");
 				}else{
 					balance -= amount;
-					System.out.println("Amount withdrawn: "+ amount);
+					System.out.println("Amount withdrawn:$"+amount);
+					System.out.println("Current Balance:$"+balance); 
 				}
 				return balance;
 				}
