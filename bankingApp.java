@@ -2,23 +2,21 @@ package banking_app;
 import java.util.Scanner;
 
 public class bankingApp {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 					//Change: instead of just pressing 1  to continue you now have some choices, changed formatting
 					System.out.println("Welcome to Infinite Capital!"); //added bank title
 					System.out.println("For New Customers press       [1]"); //added
-					System.out.println("For returning customers press [2]");
+					System.out.println("For returning customers press [2]");				
+					int choice = sc.nextInt();
 				
-				int choice = sc.nextInt();
-				
-				if(choice != 1 && choice!=2) { //change: added choice 2
-						sc.close();
-						return;
+					if(choice != 1 && choice!=2) { //change: added choice 2
+						System.out.println("INVALID CHOICE");
+						System.out.println("Select New [1] or Existing [2]");
+						choice = sc.nextInt();
 					}
 				
-				 
 				String userName = "";
 				String passWord = "";
 				
@@ -39,18 +37,63 @@ public class bankingApp {
 				
 				
 				// added so user can decide which account they would like to access
-					System.out.println("Hello "+userName+  "! Which account would you like to access?");
-				 	System.out.println("Checking    [1]");
-				 	System.out.println("Savings     [2]");
-				 	System.out.println("New account [3]");
-				 	choice = sc.nextInt();
-				 	
-				
-				 double balance = 0.00;
-				while(true) {
-					//IDEA: display which account the user is currently using
-					//Change: the formatting
-					System.out.println("WELCOME "+userName);
+				 int accountChoice;
+				 double checkingBalance = 0.00;
+				 double savingsBalance = 0.00;
+				 
+				 while(true) {
+					 System.out.println("Hello "+ userName +  "! Which account would you like to access?");
+					 	System.out.println("Checking    [1]");
+					 	System.out.println("Savings     [2]");
+					 	System.out.println("Investments [3]");
+					 	System.out.println("LOG OFF     [4]");
+					 	accountChoice = sc.nextInt();
+					 	
+					 	
+					 	switch(accountChoice) {
+					 		case 1:
+					 			accountMenu(userName, "Checking", checkingBalance, sc);
+					 			break;
+					 		case 2:
+					 			accountMenu(userName, "Savings", savingsBalance, sc);
+					 			break;
+					 		case 3:
+					 			investmentChoice(userName, "Investments", sc);
+					 			break;
+					 		case 4:
+					 			System.out.println("LOGING OFF...");
+					 			System.out.println("Thank you for banking with Infinite Capital!");
+					 			System.out.println("See you again soon!");
+								System.exit(0);
+					 		default:
+					 			System.out.println("Invalid Choice!");
+					 			break;
+					 	}
+					 }
+			}
+	 		public static void investmentChoice(String userName, String accountType, Scanner sc) {
+	 			int selection;
+	
+	 			System.out.println("-------------INVESTMENTS-------------");
+	 			System.out.println("$ICBNK   -(Infinte Capital)-   +5000%");
+	 			System.out.println("$MSFT      -(Microsoft)-       -1.68%");
+	 			System.out.println("$AAPL        -(Apple)-         -0.02%");
+	 			System.out.println("$TSLA        -(Tesla)-         +0.71%");
+	 			System.out.println("$AMZN        -(Amazon)-        +1.65%");
+	 			System.out.println("$GOOGL       -(Google)-        -1.18%");
+	 			System.out.println("$NVDA        -(NVIDIA)-        -0.37%");
+	 			System.out.println("$META    -(Meta Platforms)-    +0.25%");
+	 			System.out.println("     Press [4] to switch accounts    ");
+		
+	 			selection = sc.nextInt();
+	 			if(selection == 4) {
+			return;
+	 			}
+	 		}
+	 		public static void accountMenu(String userName, String accountType, double balance, Scanner sc) {
+				int choice;
+				while(true){
+					System.out.println("      "+accountType);
 					System.out.println("Check balance  [1]");
 					System.out.println("Deposit funds  [2]");
 					System.out.println("Withdraw funds [3]");
@@ -83,22 +126,15 @@ public class bankingApp {
 							
 							break;
 						case(5):
-							
-							
-							break;
+							return;
 						case(6):
 							System.out.println("You are logged off.");
 							System.exit(0);
 						default:
 							System.out.println("Invalid input! Pick 1-6: ");
 					}
-					
 				}
-					
-				
 			}
-			
-			
 			public static void showBalance(double balance) {
 				System.out.println("This is your balance: "+balance);
 			}
@@ -119,4 +155,5 @@ public class bankingApp {
 			
 				
 			
+
 }
