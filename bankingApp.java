@@ -74,7 +74,7 @@ public static void main(String[] args) {
 	 		public static void investmentChoice(String userName, String accountType, Scanner sc) {
 	 			int selection;
 	
-	 			System.out.println("-------------INVESTMENTS-------------");
+	 			System.out.println("-----------"+accountType+"-----------");
 	 			System.out.println("$ICBNK   -(Infinte Capital)-   +5000%");
 	 			System.out.println("$MSFT      -(Microsoft)-       -1.68%");
 	 			System.out.println("$AAPL        -(Apple)-         -0.02%");
@@ -93,7 +93,7 @@ public static void main(String[] args) {
 	 		public static void accountMenu(String userName, String accountType, double balance, Scanner sc) {
 				int choice;
 				while(true){
-					System.out.println("      "+accountType);
+					System.out.println("----"+accountType+"----");
 					System.out.println("Check balance  [1]");
 					System.out.println("Deposit funds  [2]");
 					System.out.println("Withdraw funds [3]");
