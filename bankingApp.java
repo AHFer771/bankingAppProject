@@ -75,7 +75,11 @@ public static void main(String[] args) {
 
 public static void investmentChoice(String userName, String accountType, Scanner sc) {
 		int selection;
-
+		int stockBalance;
+		int stockSelection;
+		int stockQuantity1 ,stockQuantity2, stockQuantity3, stockQuantity4, stockQuantity5, stockQuantity6, stockQuantity7, stockQuantity8;
+		int newBalance;
+		
 		System.out.println("-------------"+accountType+"-------------");
 		System.out.println("$ICBNK   -(Infinte Capital)-   +5000%");
 		System.out.println("$MSFT      -(Microsoft)-       -1.68%");
@@ -85,13 +89,147 @@ public static void investmentChoice(String userName, String accountType, Scanner
 		System.out.println("$GOOGL       -(Google)-        -1.18%");
 		System.out.println("$NVDA        -(NVIDIA)-        -0.37%");
 		System.out.println("$META    -(Meta Platforms)-    +0.25%");
-		System.out.println("     Press [4] to switch accounts    ");
+		System.out.println("-------------------------------------");
+		System.out.println("     Press [1] to purchase stock    ");
+		System.out.println("     Press [2] to switch accounts    ");
 
 		selection = sc.nextInt();
-		if(selection == 4) {
-	return;
+		
+		int total;
+		stockBalance = 10000;
+		
+		if(selection == 1) {
+			System.out.println("Please Select Which Stock You Would Like to Purchase");
+			System.out.println("$ICBNK   -(Infinte Capital)-   $500   [1]");
+			System.out.println("$MSFT      -(Microsoft)-       $450   [2]");
+			System.out.println("$AAPL        -(Apple)-         $300   [3]");
+			System.out.println("$TSLA        -(Tesla)-         $50    [4]");
+			System.out.println("$AMZN        -(Amazon)-        $200   [5]");
+			System.out.println("$GOOGL       -(Google)-        $320   [6]");
+			System.out.println("$NVDA        -(NVIDIA)-        $100   [7]");
+			System.out.println("$META    -(Meta Platforms)-    $360   [8]");
+			
+			System.out.println("Selection: ");
+			stockSelection = sc.nextInt();
+			//System.out.println("Quantity: ");
+			//stockQuantity = sc.nextInt();
+			
+			if(stockSelection == 1) {
+			
+					System.out.println("Quantity: ");
+					stockQuantity1 = sc.nextInt();
+					
+					total = stockQuantity1 * 500;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: ICBNK");
+					System.out.println("Quantity: "+stockQuantity1);
+							
+			}
+			else if(stockSelection == 2) {
+					System.out.println("Quantity: ");
+					stockQuantity2 = sc.nextInt();
+
+					total = stockQuantity2 * 450;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: MSFT");
+					System.out.println("Quantity: "+stockQuantity2);
+				}
+			else if(stockSelection == 3) {
+					System.out.println("Quantity: ");
+					stockQuantity3 = sc.nextInt();
+					
+					total = stockQuantity3 * 300;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: AAPL");
+					System.out.println("Quantity: "+stockQuantity3);
+				}
+			else if(stockSelection == 4) {
+					System.out.println("Quantity: ");
+					stockQuantity4 = sc.nextInt();
+					
+					total = stockQuantity4 * 50;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: TSLA");
+					System.out.println("Quantity: "+stockQuantity4);
+				}
+			else if(stockSelection == 5) {
+					System.out.println("Quantity: ");
+					stockQuantity5 = sc.nextInt();
+					
+					total = stockQuantity5 * 200;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: AMZN");
+					System.out.println("Quantity: "+stockQuantity5);
+				}
+			else if(stockSelection == 6) {
+					System.out.println("Quantity: ");
+					stockQuantity6 = sc.nextInt();
+					
+					total = stockQuantity6 * 320;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: GOOGL");
+					System.out.println("Quantity: "+stockQuantity6);
+				}
+			else if(stockSelection == 7) {
+					System.out.println("Quantity: ");
+					stockQuantity7 = sc.nextInt();
+					total = stockQuantity7 * 100;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: NVDA");
+					System.out.println("Quantity: "+stockQuantity7);
+				}
+			else if(stockSelection == 8) {
+					System.out.println("Quantity: ");
+					stockQuantity8 = sc.nextInt();
+					total = stockQuantity8 * 360;
+					
+					newBalance = stockBalance - total;
+					
+					System.out.println("Balance Updated: "+newBalance);
+					System.out.println("Stock Owned");
+					System.out.println("Name: META");
+					System.out.println("Quantity: "+stockQuantity8);
+				}
+				if(stockSelection > 8 || stockSelection < 0) {
+					System.out.println("INVALID SELECTION");
+			}
+		
+		
+		
+		if(selection == 2) {
+			return;
+				}
 		}
-	}
+}
+		
 
 public static void accountMenu(String userName, String accountType, double balance, Scanner sc) {
 	int choice;
