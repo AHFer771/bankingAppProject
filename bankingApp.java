@@ -250,7 +250,7 @@ public static void accountMenu(String userName, String accountType, double balan
 		System.out.println("Check balance  [1]");
 		System.out.println("Deposit funds  [2]");
 		System.out.println("Withdraw funds [3]");
-		System.out.println("Transfer money [4]");
+		//System.out.println("Transfer money [4]");
 		System.out.println("Switch account [5]"); //changed from 'new' to 'switch' account
 		System.out.println("Log off        [6]");
 		System.out.println("Press 1-6:  ");
