@@ -4,8 +4,13 @@ import java.util.Scanner;
 public class bankingApp {
 public static void main(String[] args) {
 		
+		
 	Scanner sc = new Scanner(System.in);
+	String userName = "";
+	String passWord = "";
+	boolean loggedIn = false;
 		//Change: instead of just pressing 1  to continue you now have some choices, changed formatting
+	
 		System.out.println("Welcome to Infinite Capital!"); //added bank title
 		System.out.println("For New Customers press       [1]"); //added
 		System.out.println("For returning customers press [2]");				
@@ -17,23 +22,30 @@ public static void main(String[] args) {
 			choice = sc.nextInt();
 		}
 	
-	String userName = "";
-	String passWord = "";
 	
-	 if(choice == 1) {
-		System.out.println("Create your username: ");
-		userName = sc.next();
-		System.out.println("Create your password: ");
-		passWord = sc.next();
-	} else {
-	 if(choice == 2){
-	 	System.out.println("Please enter your username and password");
-	 	System.out.println("User-name: ");
-	 	userName = sc.next();
-	 	System.out.println("Password:  ");     
-	 	passWord = sc.next();
-	 }
-	 }
+	
+		if(choice == 1) {
+			System.out.println("Create your username: ");
+			userName = sc.next();
+			System.out.println("Create your password: ");
+			passWord = sc.next();
+			System.out.println("Account Successfully Created!");
+		}
+		//Change: Once user has created their account, they will be asked to login. Credentials have to match when user created account
+		 //or else they will be shown an error
+		while(!loggedIn) {
+			System.out.println("Enter your username: ");
+			String enteredUsername = sc.next();
+			System.out.println("Enter your password: ");
+			String enteredPassword = sc.next();
+			
+			if(enteredUsername.equals(userName) && enteredPassword.equals(passWord)) {
+				System.out.println("CREDENTIALS VERIFIED");
+				loggedIn = true;
+			} else {
+				System.out.println("ERROR! INCORRECT USERNAME OR PASSWORD!");
+			}
+		 }
 	
 	
 	// added so user can decide which account they would like to access
